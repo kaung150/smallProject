@@ -8,6 +8,7 @@ import Tag from "./pages/dashboard/Tag";
 import Dashboard from "./pages/dashboard/Dashboard";
 import CardView from "./pages/dashboard/CardView";
 import AllProfiles from "./pages/dashboard/AllProfiles";
+import Notifications from "./pages/dashboard/Notifications";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -35,6 +36,10 @@ export const routes = createBrowserRouter([
       {
         path: "/allprofiles",
         element: <AllProfiles />,
+      },
+      {
+        path: "/notifications",
+        element: <Notifications />,
       },
     ],
   },

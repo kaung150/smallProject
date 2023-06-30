@@ -15,7 +15,7 @@ const Navigation = () => {
   return (
     <>
       <div
-        className={` py-4 flex  justify-between  items-center md:justify-between  px-5 ${
+        className={` py-4 flex  justify-between  items-center md:justify-between  px-5 transition-all duration-500 ${
           isDark ? "bg-[#2a2b32] text-white" : ""
         }`}
       >
