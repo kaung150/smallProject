@@ -19,7 +19,7 @@ const DefaultLayout = () => {
           <Navigation />
         </div>
 
-        <div class="flex-1 overflow-y-auto bg-whiten bg-slate-100">
+        <div class="flex-1 overflow-y-auto bg-slate-100">
           <Outlet />
         </div>
       </div>

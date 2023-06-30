@@ -6,8 +6,9 @@ import Profile from "./pages/dashboard/Profile";
 import Register from "./pages/auth/Register";
 import Tag from "./pages/dashboard/Tag";
 import Dashboard from "./pages/dashboard/Dashboard";
-import CardView from "./pages/dashboard/CardView";
 import AllProfiles from "./pages/dashboard/AllProfiles";
+import Cards from "./pages/dashboard/Cards";
+import Users from "./pages/dashboard/Users";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -21,8 +22,12 @@ export const routes = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: "/cardview",
-        element: <CardView />,
+        path: "/cards",
+        element: <Cards />,
+      },
+      {
+        path: "/users",
+        element: <Users />,
       },
       {
         path: "/tag",
