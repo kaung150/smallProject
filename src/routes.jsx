@@ -10,6 +10,7 @@ import AllProfiles from "./pages/dashboard/AllProfiles";
 import Cards from "./pages/dashboard/Cards";
 import Users from "./pages/dashboard/Users";
 import CardDetails from "./pages/CardDetail";
+import Notifications from './pages/dashboard/Notifications';
 
 const { createBrowserRouter } = require("react-router-dom");
 

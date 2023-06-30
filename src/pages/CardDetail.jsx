@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import {FaBriefcase, FaBuilding, FaCalendarDays, FaEnvelope, FaHouse, FaNetworkWired, FaPhone, FaTag, FaUser, FaViber} from 'react-icons/fa6';
 import Loading from '../components/Loading';
 
-const url = "http://10.103.0.66:3500"
+const url = "http://localhost:3500"
 
 const CardDetails = () => {
     const { id } = useParams();
