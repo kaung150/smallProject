@@ -4,9 +4,9 @@ import Login from "./pages/auth/Login";
 import NotFound from "./pages/notfound/NotFound";
 import Profile from "./pages/dashboard/Profile";
 import Register from "./pages/auth/Register";
-import Tag from "./pages/dashboard/Tag";
+import Tags from "./pages/dashboard/Tags";
 import Dashboard from "./pages/dashboard/Dashboard";
-import CardView from "./pages/dashboard/CardView";
+import CardView from "./pages/dashboard/Cards";
 import AllProfiles from "./pages/dashboard/AllProfiles";
 import Notifications from "./pages/dashboard/Notifications";
 
@@ -26,8 +26,8 @@ export const routes = createBrowserRouter([
         element: <CardView />,
       },
       {
-        path: "/tag",
-        element: <Tag />,
+        path: "/tags",
+        element: <Tags />,
       },
       {
         path: "/profile",

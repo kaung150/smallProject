@@ -11,7 +11,7 @@ const Sidebar = () => {
   const { sidebar, setSidebar, isDark, setIsDark } = useStateContext();
   return (
     <div
-      className={`  h-screen w-[290px] fixed lg:static shadow-5xl py-3 transition-all duration-500  ${
+      className={`  h-screen w-[290px] fixed lg:static shadow-2xl py-3 transition-all duration-500 border border-[#2a2b32] ${
         isDark ? "bg-[#2a2b32]" : "bg-gradient-to-b from-gray-800 to-gray-900"
       }`}
       style={{

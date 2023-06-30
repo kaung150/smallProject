@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { CgMenuGridO } from "react-icons/cg";
 import { useStateContext } from "../../contexts/ContextProvider";
-import { IoIosNotificationsOutline } from "react-icons/io";
+import {
+  IoIosNotificationsOutline,
+  IoIosArrowDown,
+  IoIosArrowUp,
+} from "react-icons/io";
 
 import Switch from "./Switch";
+import ProfileMenu from "./ProfileMenu";
 
 const Navigation = () => {
   const { sidebar, setSidebar, isDark } = useStateContext();
@@ -15,7 +20,7 @@ const Navigation = () => {
   return (
     <>
       <div
-        className={` py-4 flex  justify-between  items-center md:justify-between  px-5 transition-all duration-500 ${
+        className={` py-4 flex  justify-between  items-center md:justify-between  px-5 transition-all duration-500 shadow-xl   ${
           isDark ? "bg-[#2a2b32] text-white" : ""
         }`}
       >
@@ -30,17 +35,7 @@ const Navigation = () => {
 
           <Switch />
 
-          <Link className=" rounded-full flex gap-2">
-            <div>
-              <p className="text-sm">The Real Deal</p>
-              <p className="text-xs font-light text-slate-500">Web Developer</p>
-            </div>
-            <img
-              src="assets/img/profile.jpg"
-              className="h-10 w-10 rounded-full"
-              alt=""
-            />
-          </Link>
+          <ProfileMenu />
         </div>
       </div>
     </>
