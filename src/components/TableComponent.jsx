@@ -3,22 +3,6 @@ import {motion} from 'framer-motion';
 import { useTable, usePagination, useGlobalFilter } from "react-table";
 import { FaAngleLeft, FaAngleRight, FaAnglesLeft, FaAnglesRight, FaMagnifyingGlass } from "react-icons/fa6";
 
-const Table = ({children}) => {
-  return (
-    <table className="table-auto w-full shadow-lg border-separate border-spacing-y-3">
-        {children}
-    </table>
-  )
-}
-
-const TD = ({children}) => {
-  return (
-    <th className='p-3 h-20'>
-        {children}
-    </th>
-  )
-}
-
 // Our table component
 function TableComponent({ columns, data }) {
   
@@ -57,11 +41,11 @@ function TableComponent({ columns, data }) {
   
   return (
     <motion.div                 
-    className='p-3 max-w-9xl mx-auto font-poppinsLight text-slate-100'
+    className={`p-3 container mx-auto font-poppinsLight text-slate-100 + `}
     initial={{opacity: 0}}
     animate={{opacity: 1}}
     transition={{duration: 0.5}}>
-      <div className='my-3 flex justify-end items-center gap-6'>
+      <div className='my-3 flex justify-end items-center gap-6 text-gray-600'>
           <div className="flex flex-row items-center gap-3">
               <h1 className="text-xl text-gray-600 font-medium">Search</h1>
               <FaMagnifyingGlass className='w-5 h-5 text-gray-600' />
@@ -76,15 +60,15 @@ function TableComponent({ columns, data }) {
           </div>
       </div>
 
-      <Table {...getTableProps()}>
+      <table {...getTableProps()} className="table-fixed w-full text-left shadow-lg border-separate border-spacing-y-3">
         <thead>
           {headerGroups.map(headerGroup => (
-            <tr {...headerGroup.getHeaderGroupProps()} className='text-lg text-left text-white bg-gradient-to-r from-gray-800 to-gray-900 dark:bg-[#2a2b32]'>
+            <tr {...headerGroup.getHeaderGroupProps()} className='text-lg text-white bg-gradient-to-r from-gray-800 to-gray-900 dark:bg-[#2a2b32]'>
               {headerGroup.headers.map(column => (
-                <TD {...column.getHeaderProps()}>
+                <td {...column.getHeaderProps()} className='p-3'>
                   {column.render("Header")}
                   {/* Render the columns filter UI */}
-                </TD>
+                </td>
               ))}
             </tr>
           ))}
@@ -93,17 +77,17 @@ function TableComponent({ columns, data }) {
           {page.map((row, i) => {
             prepareRow(row);
             return (
-              <tr {...row.getRowProps()} key={i} className='text-md text-left text-gray-700'>
+              <tr {...row.getRowProps()} key={i} className='text-md text-gray-700'>
                 {row.cells.map(cell => {
                   return (
-                    <TD {...cell.getCellProps()}>{cell.render("Cell")}</TD>
+                    <td {...cell.getCellProps()} className='p-3 break-words'>{cell.render("Cell")}</td>
                   );
                 })}
               </tr>
             );
           })}
         </tbody>
-      </Table>
+      </table>
 
       {/* This is Pagination */}
       <div className="p-4 flex justify-between items-center flex-wrap text-gray-600">

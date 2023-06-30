@@ -9,6 +9,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import AllProfiles from "./pages/dashboard/AllProfiles";
 import Cards from "./pages/dashboard/Cards";
 import Users from "./pages/dashboard/Users";
+import CardDetails from "./pages/CardDetail";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -24,6 +25,10 @@ export const routes = createBrowserRouter([
       {
         path: "/cards",
         element: <Cards />,
+      },
+      {
+        path: "/cards/:id",
+        element: <CardDetails />
       },
       {
         path: "/users",
