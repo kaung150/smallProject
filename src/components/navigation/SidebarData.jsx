@@ -45,7 +45,7 @@ export const SidebarData = [
   },
   {
     title: "Cards",
-    path: "/cardview",
+    path: "/cards",
     icon: <BsIcons.BsFillCreditCard2BackFill />,
   },
   {
