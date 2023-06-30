@@ -1,12 +1,15 @@
-import GuessLayout from "./components/GuessLayout";
-import Login from "./pages/Login";
-import NotFound from "./pages/NotFound";
-import Register from "./pages/Register";
+import GuessLayout from "./components/layouts/GuessLayout";
+import DefaultLayout from "./components/layouts/DefaultLayout";
+import Login from "./pages/auth/Login";
+import NotFound from "./pages/notfound/NotFound";
+import Profile from "./pages/dashboard/Profile";
+import Register from "./pages/auth/Register";
+import Tag from "./pages/dashboard/Tag";
+import Dashboard from "./pages/dashboard/Dashboard";
+import CardView from "./pages/dashboard/CardView";
+import AllProfiles from "./pages/dashboard/AllProfiles";
 
 const { createBrowserRouter } = require("react-router-dom");
-const { default: DefaultLayout } = require("./components/DefaultLayout");
-const { default: Dashboard } = require("./pages/Dashboard");
-const { default: CardView } = require("./pages/CardView");
 
 export const routes = createBrowserRouter([
   {
@@ -20,6 +23,18 @@ export const routes = createBrowserRouter([
       {
         path: "/cardview",
         element: <CardView />,
+      },
+      {
+        path: "/tag",
+        element: <Tag />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
+      },
+      {
+        path: "/allprofiles",
+        element: <AllProfiles />,
       },
     ],
   },

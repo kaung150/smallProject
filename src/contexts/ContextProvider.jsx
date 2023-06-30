@@ -6,11 +6,20 @@ const stateContext = createContext({
   setCards: () => {},
   token: null,
   setToken: () => {},
+  isOpen: false,
+  setIsOpen: () => {},
+  sidebar: false,
+  setSidebar: () => {},
+  isDark: false,
+  setIsDark: () => {},
 });
 
 const ContextProvider = ({ children }) => {
   const [cards, setCards] = useState([]);
   const [token, _setToken] = useState();
+  const [isOpen, setIsOpen] = useState(false);
+  const [sidebar, setSidebar] = useState(false);
+  const [isDark, setIsDark] = useState(false);
   const cookies = new Cookies();
 
   const setToken = (token) => {
@@ -27,6 +36,12 @@ const ContextProvider = ({ children }) => {
     setCards,
     token,
     setToken,
+    isOpen,
+    setIsOpen,
+    sidebar,
+    setSidebar,
+    isDark,
+    setIsDark,
   };
 
   return (
