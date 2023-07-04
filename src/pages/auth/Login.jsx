@@ -1,9 +1,19 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import axiosClient from "../../axios-client";
 import { useStateContext } from "../../contexts/ContextProvider";
+import { validation } from "../Validation";
 
 const App = () => {
-  const { setToken, setRefreshToken } = useStateContext();
+  const {
+    setToken,
+    setRefreshToken,
+    values,
+    setValues,
+    frontErrors,
+    setFrontErrors,
+  } = useStateContext();
+
+  const [results, setResults] = useState(false);
 
   const nameRef = useRef();
   const passwordRef = useRef();
@@ -35,6 +45,14 @@ const App = () => {
       });
   };
 
+  const handleInput = (ev) => {
+    const newObj = { ...values, [ev.target.name]: [ev.target.value] };
+    setValues(newObj);
+    const { errors, results } = validation(values);
+    setFrontErrors(errors);
+    setResults(results);
+  };
+
   return (
     <section className="flex flex-col md:flex-row  h-screen items-center">
       {/* Login left banner */}
@@ -62,14 +80,21 @@ const App = () => {
           >
             <div>
               <label className="block text-gray-700">UserName</label>
+              {results.username && <div>haha</div>}
               <input
                 type="text"
                 placeholder="Enter Username "
                 className="w-full bg-gray-200 rounded-lg px-4 py-3 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
                 ref={nameRef}
                 required
+                name="username"
+                onChange={(ev) => handleInput(ev)}
               />
             </div>
+
+            {frontErrors && (
+              <div className="text-red-500">{frontErrors.username}</div>
+            )}
 
             <div className="mt-4">
               <label className="block text-gray-700">Password</label>
@@ -78,7 +103,7 @@ const App = () => {
                 ref={passwordRef}
                 placeholder="Enter Password"
                 minLength={6}
-                name=""
+                name="password"
                 className="w-full bg-gray-200 rounded-lg px-4 py-3 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
                 required
               />

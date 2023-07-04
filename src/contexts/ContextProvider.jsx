@@ -14,23 +14,33 @@ const stateContext = createContext({
   setIsDark: () => {},
   refreshToken: null,
   setRefreshToken: () => {},
+  values: {},
+  setValues: () => {},
+  frontErrors: {},
+  setFrontErrors: () => {},
+  userValidation: true,
+  setUserValidation: () => {},
+  userErrors: "",
+  setUserErrors: () => {},
 });
-
-// cookies.get("token")
 
 const ContextProvider = ({ children }) => {
   const cookies = new Cookies();
   const [cards, setCards] = useState([]);
-  const [token, _setToken] = useState(123);
+  const [token, _setToken] = useState(cookies.get("token"));
   const [refreshToken, _setRefreshToken] = useState(cookies.get("jwt"));
   const [isOpen, setIsOpen] = useState(false);
   const [sidebar, setSidebar] = useState(false);
   const [isDark, setIsDark] = useState(false);
+  const [userValidation, setUserValidation] = useState(true);
+  const [userErrors, setUserErrors] = useState("");
 
   const [values, setValues] = useState({
-    user: "",
-    pwd: "",
+    username: "",
+    password: "",
   });
+
+  const [frontErrors, setFrontErrors] = useState({});
 
   const setToken = (token) => {
     _setToken(token);
@@ -63,6 +73,14 @@ const ContextProvider = ({ children }) => {
     setIsDark,
     refreshToken,
     setRefreshToken,
+    values,
+    setValues,
+    frontErrors,
+    setFrontErrors,
+    userValidation,
+    setUserValidation,
+    userErrors,
+    setUserErrors,
   };
 
   return (
