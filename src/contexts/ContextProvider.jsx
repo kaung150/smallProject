@@ -12,15 +12,25 @@ const stateContext = createContext({
   setSidebar: () => {},
   isDark: false,
   setIsDark: () => {},
+  refreshToken: null,
+  setRefreshToken: () => {},
 });
 
+// cookies.get("token")
+
 const ContextProvider = ({ children }) => {
+  const cookies = new Cookies();
   const [cards, setCards] = useState([]);
-  const [token, _setToken] = useState();
+  const [token, _setToken] = useState(123);
+  const [refreshToken, _setRefreshToken] = useState(cookies.get("jwt"));
   const [isOpen, setIsOpen] = useState(false);
   const [sidebar, setSidebar] = useState(false);
   const [isDark, setIsDark] = useState(false);
-  const cookies = new Cookies();
+
+  const [values, setValues] = useState({
+    user: "",
+    pwd: "",
+  });
 
   const setToken = (token) => {
     _setToken(token);
@@ -28,6 +38,15 @@ const ContextProvider = ({ children }) => {
       cookies.set("token", token, { path: "/" });
     } else {
       cookies.remove("token");
+    }
+  };
+
+  const setRefreshToken = (refreshToken) => {
+    _setRefreshToken(refreshToken);
+    if (refreshToken) {
+      cookies.set("jwt", refreshToken, { path: "/" });
+    } else {
+      cookies.remove("jwt");
     }
   };
 
@@ -42,6 +61,8 @@ const ContextProvider = ({ children }) => {
     setSidebar,
     isDark,
     setIsDark,
+    refreshToken,
+    setRefreshToken,
   };
 
   return (

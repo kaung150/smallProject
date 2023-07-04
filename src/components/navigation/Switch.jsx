@@ -22,7 +22,7 @@ const Switch = () => {
         className={classNames(
           "h-6 w-6 bg-slate-200 rounded-full transition-all duration-500  my-auto ml-1 ",
           {
-            "ml-8": isSelected,
+            "ml-9": isSelected,
           }
         )}
       >

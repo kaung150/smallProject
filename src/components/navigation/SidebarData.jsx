@@ -45,12 +45,34 @@ export const SidebarData = [
   },
   {
     title: "Cards",
-    path: "/cards",
+    path: "#",
     icon: <BsIcons.BsFillCreditCard2BackFill />,
+    iconClosed: <IoIcons.IoIosArrowDown />,
+    iconOpened: <IoIcons.IoIosArrowUp />,
+
+    subNav: [
+      {
+        title: "View Cards",
+        path: "/cards",
+        icon: <IoIcons.IoIosPaper />,
+        cName: "sub-nav",
+      },
+      {
+        title: "Create Cards",
+        path: "/cardForm",
+        icon: <IoIcons.IoIosPaper />,
+        cName: "sub-nav",
+      },
+    ],
   },
   {
     title: "Notifications",
     path: "/notifications",
+    icon: <IoIcons.IoIosNotificationsOutline />,
+  },
+  {
+    title: "Logout",
+    path: "/logout",
     icon: <IoIcons.IoIosNotificationsOutline />,
   },
 ];

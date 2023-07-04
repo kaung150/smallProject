@@ -6,11 +6,12 @@ import Profile from "./pages/dashboard/Profile";
 import Register from "./pages/auth/Register";
 import Tags from "./pages/dashboard/Tags";
 import Dashboard from "./pages/dashboard/Dashboard";
+import Notifications from "./pages/dashboard/Notifications";
 import AllProfiles from "./pages/dashboard/AllProfiles";
 import Cards from "./pages/dashboard/Cards";
 import Users from "./pages/dashboard/Users";
-import CardDetails from "./pages/CardDetail";
-import Notifications from './pages/dashboard/Notifications';
+import CardForm from "./pages/dashboard/CardForm";
+import Logout from "./pages/auth/Logout";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -28,8 +29,8 @@ export const routes = createBrowserRouter([
         element: <Cards />,
       },
       {
-        path: "/cards/:id",
-        element: <CardDetails />
+        path: "/CardForm",
+        element: <CardForm />,
       },
       {
         path: "/users",
@@ -50,6 +51,10 @@ export const routes = createBrowserRouter([
       {
         path: "/notifications",
         element: <Notifications />,
+      },
+      {
+        path: "/logout",
+        element: <Logout />,
       },
     ],
   },

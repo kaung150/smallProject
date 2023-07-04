@@ -1,10 +1,16 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
+import { useStateContext } from "../../contexts/ContextProvider";
 
 const GuessLayout = () => {
+  const { token } = useStateContext();
+
+  if (token) {
+    return <Navigate to="/dashboard" />;
+  }
+
   return (
     <div>
-      GuessLayout
       <Outlet />
     </div>
   );

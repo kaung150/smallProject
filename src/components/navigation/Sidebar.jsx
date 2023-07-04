@@ -5,15 +5,14 @@ import { useStateContext } from "../../contexts/ContextProvider";
 import { SidebarData } from "./SidebarData";
 import Submenu from "./Submenu";
 import { BsFillCreditCardFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const showSidebar = () => setSidebar(!sidebar);
-  const { sidebar, setSidebar, isDark, setIsDark } = useStateContext();
+  const { sidebar, setSidebar } = useStateContext();
   return (
     <div
-      className={`  h-screen w-[290px] fixed lg:static shadow-2xl py-3 transition-all duration-500 border border-[#2a2b32] ${
-        isDark ? "bg-[#2a2b32]" : "bg-gradient-to-b from-gray-800 to-gray-900"
-      }`}
+      className={`w-[230px] h-[500px] fixed lg:static py-3 transition-all duration-500  px-2  overflow-y-auto`}
       style={{
         left: sidebar ? 0 : "-100%",
         transition: "350ms",
@@ -28,12 +27,12 @@ const Sidebar = () => {
         />
       </div>
 
-      <div className="text-slate-100 flex items-center gap-2 ml-5 mt-10">
+      <div className="text-slate-100 flex items-center gap-2 ml-5">
         <BsFillCreditCardFill size={30} className="" />
         <p className="text-3xl  font-poppinsSemiBold">Manager</p>
       </div>
 
-      <div className="mt-16">
+      <div className="mt-16 ">
         <h2 className="text-slate-400 text-sm font-poppinsSemiBold ml-6">
           MENU
         </h2>
